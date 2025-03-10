@@ -1,6 +1,6 @@
 package io.skywalkerlabs.uMeet_service.Repositories;
 
-import io.skywalkerlabs.uMeet_service.Entities.UserEntity;
+import io.skywalkerlabs.uMeet_service.Entities.Profile.UserEntity;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 

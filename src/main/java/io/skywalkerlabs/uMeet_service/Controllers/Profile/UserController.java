@@ -3,12 +3,12 @@
 // (powered by FernFlower decompiler)
 //
 
-package io.skywalkerlabs.uMeet_service.Controllers;
+package io.skywalkerlabs.uMeet_service.Controllers.Profile;
 
 import io.skywalkerlabs.uMeet_service.DataModels.RequestModels.CreateUserRequest;
 import io.skywalkerlabs.uMeet_service.Repositories.UserRepository;
 
-import io.skywalkerlabs.uMeet_service.Services.AmazonWebServices.UploadToS3;
+import io.skywalkerlabs.uMeet_service.Services.AmazonWebServices.SimpleStorageService;
 import io.skywalkerlabs.uMeet_service.Services.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,12 +27,12 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    public UserController(UploadToS3 uploadToS3) {
-        this.uploadToS3 = uploadToS3;
+    public UserController(SimpleStorageService simpleStorageService) {
+        this.simpleStorageService = simpleStorageService;
     }
 
     @Autowired
-    private UploadToS3 uploadToS3;
+    private SimpleStorageService simpleStorageService;
     @Autowired
     private UserRepository userRepository;
 
@@ -46,8 +46,14 @@ public class UserController {
     }
 
     @Operation(summary = "Upload profile pictures")
-    @PutMapping(value = "/{userId}/Upload", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    @PutMapping(value = "/{userId}/profileUpload", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public String uploadProfilePictures(@PathVariable String userId, @RequestPart("picture") MultipartFile picture) throws IOException {
-        return uploadToS3.uploadPictures(userId, picture);
+        return simpleStorageService.uploadProfilePictures(userId, picture);
+    }
+
+    @Operation(summary = "Upload private pictures")
+    @PutMapping(value = "/{userId}/privateUpload", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public String uploadPrivatePictures(@PathVariable String userId, @RequestPart("picture") MultipartFile picture) throws IOException {
+        return simpleStorageService.uploadPrivatePictures(userId, picture);
     }
 }

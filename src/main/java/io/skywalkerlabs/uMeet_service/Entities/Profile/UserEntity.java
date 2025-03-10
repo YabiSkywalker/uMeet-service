@@ -1,7 +1,9 @@
-package io.skywalkerlabs.uMeet_service.Entities;
+package io.skywalkerlabs.uMeet_service.Entities.Profile;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document(collection = "userEntity")
 public class UserEntity {
 
     @Id

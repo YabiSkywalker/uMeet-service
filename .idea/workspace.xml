@@ -4,22 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d39d3fa0-5700-4a80-ba92-1287db713140" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations/UMeetServiceApplication.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/skywalkerlabs/uMeet_service/Configuration/S3Config.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/skywalkerlabs/uMeet_service/Configuration/SwaggerConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/skywalkerlabs/uMeet_service/Services/AmazonWebServices/UploadToS3.java" afterDir="false" />
+    <list default="true" id="d39d3fa0-5700-4a80-ba92-1287db713140" name="Changes" comment="Adding functionality to create account + upload pictures">
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/skywalkerlabs/uMeet_service/Controllers/Geolocation/GeolocationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/skywalkerlabs/uMeet_service/Entities/Geolocation/UserLocation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/skywalkerlabs/uMeet_service/Controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/skywalkerlabs/uMeet_service/Controllers/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/skywalkerlabs/uMeet_service/Controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/skywalkerlabs/uMeet_service/Controllers/Profile/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/skywalkerlabs/uMeet_service/Entities/UserEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/skywalkerlabs/uMeet_service/Entities/Profile/UserEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/skywalkerlabs/uMeet_service/Repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/skywalkerlabs/uMeet_service/Repositories/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/skywalkerlabs/uMeet_service/Services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/skywalkerlabs/uMeet_service/Services/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/skywalkerlabs/uMeet_service/UMeetServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/skywalkerlabs/uMeet_service/UMeetServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/skywalkerlabs/uMeet_service/Services/AmazonWebServices/UploadToS3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/skywalkerlabs/uMeet_service/Services/AmazonWebServices/SimpleStorageService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/skywalkerlabs/uMeet_service/Util/Mapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/skywalkerlabs/uMeet_service/Util/Mapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/skywalkerlabs/uMeet_service/UMeetServiceApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/skywalkerlabs/uMeet_service/UMeetServiceApplication.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +24,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="package-info" />
         <option value="Class" />
       </list>
     </option>
@@ -56,6 +52,11 @@
     "last_opened_file_path": "/Users/yabseragebrekidan/Developer/git/uMeet-service"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/io/skywalkerlabs/uMeet_service/Util" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -65,6 +66,19 @@
       <option name="presentableId" value="Default" />
       <updated>1741356918233</updated>
     </task>
+    <task id="LOCAL-00001" summary="Adding functionality to create account + upload pictures">
+      <option name="closed" value="true" />
+      <created>1741552680730</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1741552680730</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Adding functionality to create account + upload pictures" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding functionality to create account + upload pictures" />
   </component>
 </project>

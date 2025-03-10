@@ -1,7 +1,7 @@
 package io.skywalkerlabs.uMeet_service.Util;
 
 import io.skywalkerlabs.uMeet_service.DataModels.RequestModels.CreateUserRequest;
-import io.skywalkerlabs.uMeet_service.Entities.UserEntity;
+import io.skywalkerlabs.uMeet_service.Entities.Profile.UserEntity;
 import java.util.UUID;
 
 public class Mapper {

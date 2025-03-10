@@ -1,19 +1,14 @@
 package io.skywalkerlabs.uMeet_service.Services.AmazonWebServices;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.model.ObjectMetadata;
-import io.skywalkerlabs.uMeet_service.Configuration.S3Config;
-import io.skywalkerlabs.uMeet_service.Controllers.UserController;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 
 
-
-
 @Service
-public class UploadToS3 {
+public class SimpleStorageService {
 
 
 
@@ -22,22 +17,33 @@ public class UploadToS3 {
     private final  AmazonS3 s3Client;
 
 
-    public UploadToS3(AmazonS3 s3Client) {
+    public SimpleStorageService(AmazonS3 s3Client) {
         this.s3Client = s3Client;
     }
 
 
-    public String uploadPictures(String userId, MultipartFile picture) throws IOException {
+    public String uploadProfilePictures(String userId, MultipartFile picture) throws IOException {
 
-
-        String key = "profilePictures/" + userId;
+        String key = userId + "/profilePictures/" + picture.getOriginalFilename();
         ObjectMetadata metadata = new ObjectMetadata();
         metadata.setContentType(picture.getContentType());
         metadata.setContentLength(picture.getSize());
-
         s3Client.putObject(PROFILE_PICTURE_BUCKET, key, picture.getInputStream(), metadata);
 
         return s3Client.getUrl(PROFILE_PICTURE_BUCKET, key).toString();
     }
+    public String uploadPrivatePictures(String userId, MultipartFile picture) throws IOException {
+
+        String filename = System.currentTimeMillis() + "_" + picture.getOriginalFilename();
+        String key = userId + "/privatePictures/" + filename;
+        ObjectMetadata metadata = new ObjectMetadata();
+        metadata.setContentType(picture.getContentType());
+        metadata.setContentLength(picture.getSize());
+        s3Client.putObject(PROFILE_PICTURE_BUCKET, key, picture.getInputStream(), metadata);
+
+        return s3Client.getUrl(PROFILE_PICTURE_BUCKET, key).toString();
+    }
+
+
 
 }
