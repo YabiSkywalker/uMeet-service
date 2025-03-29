@@ -20,19 +20,13 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 
 @RestController
-@RequestMapping({"/Users"})
+@RequestMapping({"/api/auth"})
 public class UserController {
 
 
     @Autowired
     private UserService userService;
 
-    public UserController(SimpleStorageService simpleStorageService) {
-        this.simpleStorageService = simpleStorageService;
-    }
-
-    @Autowired
-    private SimpleStorageService simpleStorageService;
     @Autowired
     private UserRepository userRepository;
 
@@ -45,15 +39,10 @@ public class UserController {
         return this.userService.createAccount(newUser);
     }
 
-    @Operation(summary = "Upload profile pictures")
-    @PutMapping(value = "/{userId}/profileUpload", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public String uploadProfilePictures(@PathVariable String userId, @RequestPart("picture") MultipartFile picture) throws IOException {
-        return simpleStorageService.uploadProfilePictures(userId, picture);
+    @Operation(summary = "Schedule profile for deletion.")
+    @DeleteMapping("/{id}/Delete")
+    public ResponseEntity<String> deleteAccount(@PathVariable String id) {
+        return userService.deleteAccount(id);
     }
 
-    @Operation(summary = "Upload private pictures")
-    @PutMapping(value = "/{userId}/privateUpload", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public String uploadPrivatePictures(@PathVariable String userId, @RequestPart("picture") MultipartFile picture) throws IOException {
-        return simpleStorageService.uploadPrivatePictures(userId, picture);
-    }
 }

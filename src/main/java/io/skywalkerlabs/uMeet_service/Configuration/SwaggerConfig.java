@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Configuration;
         info = @Info(
                 title = "uMeet-service",
                 version = "0.01",
-                description = "TBD --Yabi..."
+                description = "A backend API service for uMeets front end clients."
         )
 )
 

@@ -1,52 +1,19 @@
-package io.skywalkerlabs.uMeet_service.Entities.Profile;
+package io.skywalkerlabs.uMeet_service.DataModels.RequestModels;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "userEntity")
-public class UserEntity {
 
-    @Id
-    private String id;
+@Getter
+@Setter
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public class UserProfileUpdateModel {
+
     private String firstName;
     private String lastName;
     private String email;
-    private String password;
-    private String phoneNumber;
-    private String displayName;
-    private String aboutMeDescription;
-    private double age;
-    private double height;
-    private double weight;
-    private double position;
-    private String ethnicity;
-    private String lookingFor;
-    private String gender;
-    private boolean isActive;
-
-
-    public boolean isActive() {
-        return isActive;
-    }
-
-    public void setActive(boolean active) {
-        isActive = active;
-    }
-
-
-
-
-    // Default constructor
-    public UserEntity() {}
-
-    // Getters and Setters
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public String getFirstName() {
         return firstName;
@@ -70,14 +37,6 @@ public class UserEntity {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public String getPhoneNumber() {
@@ -159,5 +118,17 @@ public class UserEntity {
     public void setGender(String gender) {
         this.gender = gender;
     }
+
+    private String phoneNumber;
+    private String displayName;
+    private String aboutMeDescription;
+    private double age;
+    private double height;
+    private double weight;
+    private double position;
+    private String ethnicity;
+    private String lookingFor;
+    private String gender;
+
 
 }
