@@ -20,7 +20,7 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                git branch: "main", url: "https://github.com/YabiSkywalker/bandera.git"
+                git branch: "main", url: "https://github.com/YabiSkywalker/uMeet-service.git"
             }
         }
 
@@ -32,7 +32,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh "docker buildx build --platform=linux/amd64 -t bandera-svc ."
+                sh "docker buildx build --platform=linux/amd64 -t umeet-service ."
             }
         }
 

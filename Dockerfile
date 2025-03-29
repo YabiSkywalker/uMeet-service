@@ -1,7 +1,13 @@
-FROM ubuntu:latest
-LABEL authors="yabseragebrekidan"
+FROM openjdk:17-jdk-slim
+
+LABEL authors="YabiSkywalker"
 
 WORKDIR /app
 
+USER root
 
-#ENTRYPOINT ["top", "-b"]
+COPY target/uMeet-service.jar /app/app.jar
+
+EXPOSE 8080
+
+CMD ["java", "-jar", "/app/app.jar"]
