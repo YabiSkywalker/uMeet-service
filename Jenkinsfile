@@ -4,7 +4,7 @@ pipeline {
     agent any
 
     environment {
-        BUILD_VERSION                =         'v0.01'
+        BUILD_VERSION                =         'v0.0.1'
         GIT_CREDENTIALS_ID           =         'YabiSkywalker'
         DOCKER_CREDENTIALS_ID        =         'JenkinsToDocker'
         JAVA_HOME                    =         '/usr/lib/jvm/java-17-openjdk-amd64'
@@ -56,7 +56,7 @@ pipeline {
 
         stage('Docker Push') {
             steps {
-                sh "docker push yabiskywalker/bandera-service-images:${env.BUILD_VERSION}"
+                sh "docker push yabiskywalker/umeet-service-images:${env.BUILD_VERSION}"
             }
         }
 
