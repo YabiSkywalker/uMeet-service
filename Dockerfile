@@ -4,7 +4,7 @@ WORKDIR /app
 
 USER root
 
-COPY target/uMeet-service.jar app.jar
+COPY out/artifacts/uMeet_service_jar/uMeet-service.jar app.jar
 
 EXPOSE 8080
 
