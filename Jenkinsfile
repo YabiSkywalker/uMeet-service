@@ -59,47 +59,14 @@ pipeline {
                 sh "docker push yabiskywalker/umeet-service-images:${env.BUILD_VERSION}"
             }
         }
-
-        stage('reDeploy') {
-            steps {
-
-                script {
-                    def harnessTrigger = sh(script: """
-                                   curl -X POST "https://${env.HARN_API}/${env.DPL_PIPE}?accountIdentifier=${env.ACC_ID}&orgIdentifier=${env.ORG_ID}&projectIdentifier=${env.PROJ_ID}" \\
-                                   -H "Content-Type: application/yaml" \\
-                                   -H "x-api-key: <<<<API_KEY>>>" \\
-                                   -d '
-                                   pipeline:
-                                     identifier: "RollingDeploy"
-                                     stages:
-                                       - stage:
-                                           identifier: "Deploy"
-                                           type: "Deployment"
-                                           spec:
-                                             service:
-                                               serviceInputs:
-                                                 serviceDefinition:
-                                                   spec:
-                                                     artifacts:
-                                                       primary:
-                                                         sources:
-                                                           - identifier: "Primary"
-                                                             spec:
-                                                               tag: "${env.BUILD_VERSION}"
-                                   '
-                               """, returnStdout: true
-                    ).trim()
-                }
-            }
-        }
     }
 
     post {
         success {
-            echo "✅ Deployment successful!"
+            echo "✅ Build successful!"
         }
         failure {
-            echo "❌ Deployment failed!"
+            echo "❌ Build failed!"
         }
     }
 }
